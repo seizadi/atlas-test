@@ -242,8 +242,8 @@ func request_Applications_List_0(ctx context.Context, marshaler runtime.Marshale
 
 }
 
-func request_Events_Create_0(ctx context.Context, marshaler runtime.Marshaler, client EventsClient, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
-	var protoReq CreateEventRequest
+func request_TestEvents_Create_0(ctx context.Context, marshaler runtime.Marshaler, client TestEventsClient, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
+	var protoReq CreateTestEventRequest
 	var metadata runtime.ServerMetadata
 
 	newReader, berr := utilities.IOReaderFactory(req.Body)
@@ -260,11 +260,11 @@ func request_Events_Create_0(ctx context.Context, marshaler runtime.Marshaler, c
 }
 
 var (
-	filter_Events_Read_0 = &utilities.DoubleArray{Encoding: map[string]int{"id": 0, "resource_id": 1}, Base: []int{1, 1, 1, 0}, Check: []int{0, 1, 2, 3}}
+	filter_TestEvents_Read_0 = &utilities.DoubleArray{Encoding: map[string]int{"id": 0, "resource_id": 1}, Base: []int{1, 1, 1, 0}, Check: []int{0, 1, 2, 3}}
 )
 
-func request_Events_Read_0(ctx context.Context, marshaler runtime.Marshaler, client EventsClient, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
-	var protoReq ReadEventRequest
+func request_TestEvents_Read_0(ctx context.Context, marshaler runtime.Marshaler, client TestEventsClient, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
+	var protoReq ReadTestEventRequest
 	var metadata runtime.ServerMetadata
 
 	var (
@@ -288,7 +288,7 @@ func request_Events_Read_0(ctx context.Context, marshaler runtime.Marshaler, cli
 	if err := req.ParseForm(); err != nil {
 		return nil, metadata, status.Errorf(codes.InvalidArgument, "%v", err)
 	}
-	if err := runtime.PopulateQueryParameters(&protoReq, req.Form, filter_Events_Read_0); err != nil {
+	if err := runtime.PopulateQueryParameters(&protoReq, req.Form, filter_TestEvents_Read_0); err != nil {
 		return nil, metadata, status.Errorf(codes.InvalidArgument, "%v", err)
 	}
 
@@ -298,11 +298,11 @@ func request_Events_Read_0(ctx context.Context, marshaler runtime.Marshaler, cli
 }
 
 var (
-	filter_Events_Update_0 = &utilities.DoubleArray{Encoding: map[string]int{"payload": 0, "id": 1, "resource_id": 2}, Base: []int{1, 2, 1, 1, 0, 0}, Check: []int{0, 1, 2, 3, 4, 2}}
+	filter_TestEvents_Update_0 = &utilities.DoubleArray{Encoding: map[string]int{"payload": 0, "id": 1, "resource_id": 2}, Base: []int{1, 2, 1, 1, 0, 0}, Check: []int{0, 1, 2, 3, 4, 2}}
 )
 
-func request_Events_Update_0(ctx context.Context, marshaler runtime.Marshaler, client EventsClient, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
-	var protoReq UpdateEventRequest
+func request_TestEvents_Update_0(ctx context.Context, marshaler runtime.Marshaler, client TestEventsClient, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
+	var protoReq UpdateTestEventRequest
 	var metadata runtime.ServerMetadata
 
 	newReader, berr := utilities.IOReaderFactory(req.Body)
@@ -334,7 +334,7 @@ func request_Events_Update_0(ctx context.Context, marshaler runtime.Marshaler, c
 	if err := req.ParseForm(); err != nil {
 		return nil, metadata, status.Errorf(codes.InvalidArgument, "%v", err)
 	}
-	if err := runtime.PopulateQueryParameters(&protoReq, req.Form, filter_Events_Update_0); err != nil {
+	if err := runtime.PopulateQueryParameters(&protoReq, req.Form, filter_TestEvents_Update_0); err != nil {
 		return nil, metadata, status.Errorf(codes.InvalidArgument, "%v", err)
 	}
 
@@ -344,11 +344,11 @@ func request_Events_Update_0(ctx context.Context, marshaler runtime.Marshaler, c
 }
 
 var (
-	filter_Events_Update_1 = &utilities.DoubleArray{Encoding: map[string]int{"payload": 0, "id": 1, "resource_id": 2}, Base: []int{1, 2, 1, 1, 0, 0}, Check: []int{0, 1, 2, 3, 4, 2}}
+	filter_TestEvents_Update_1 = &utilities.DoubleArray{Encoding: map[string]int{"payload": 0, "id": 1, "resource_id": 2}, Base: []int{1, 2, 1, 1, 0, 0}, Check: []int{0, 1, 2, 3, 4, 2}}
 )
 
-func request_Events_Update_1(ctx context.Context, marshaler runtime.Marshaler, client EventsClient, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
-	var protoReq UpdateEventRequest
+func request_TestEvents_Update_1(ctx context.Context, marshaler runtime.Marshaler, client TestEventsClient, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
+	var protoReq UpdateTestEventRequest
 	var metadata runtime.ServerMetadata
 
 	newReader, berr := utilities.IOReaderFactory(req.Body)
@@ -389,7 +389,7 @@ func request_Events_Update_1(ctx context.Context, marshaler runtime.Marshaler, c
 	if err := req.ParseForm(); err != nil {
 		return nil, metadata, status.Errorf(codes.InvalidArgument, "%v", err)
 	}
-	if err := runtime.PopulateQueryParameters(&protoReq, req.Form, filter_Events_Update_1); err != nil {
+	if err := runtime.PopulateQueryParameters(&protoReq, req.Form, filter_TestEvents_Update_1); err != nil {
 		return nil, metadata, status.Errorf(codes.InvalidArgument, "%v", err)
 	}
 
@@ -399,11 +399,11 @@ func request_Events_Update_1(ctx context.Context, marshaler runtime.Marshaler, c
 }
 
 var (
-	filter_Events_Delete_0 = &utilities.DoubleArray{Encoding: map[string]int{"id": 0, "resource_id": 1}, Base: []int{1, 1, 1, 0}, Check: []int{0, 1, 2, 3}}
+	filter_TestEvents_Delete_0 = &utilities.DoubleArray{Encoding: map[string]int{"id": 0, "resource_id": 1}, Base: []int{1, 1, 1, 0}, Check: []int{0, 1, 2, 3}}
 )
 
-func request_Events_Delete_0(ctx context.Context, marshaler runtime.Marshaler, client EventsClient, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
-	var protoReq DeleteEventRequest
+func request_TestEvents_Delete_0(ctx context.Context, marshaler runtime.Marshaler, client TestEventsClient, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
+	var protoReq DeleteTestEventRequest
 	var metadata runtime.ServerMetadata
 
 	var (
@@ -427,7 +427,7 @@ func request_Events_Delete_0(ctx context.Context, marshaler runtime.Marshaler, c
 	if err := req.ParseForm(); err != nil {
 		return nil, metadata, status.Errorf(codes.InvalidArgument, "%v", err)
 	}
-	if err := runtime.PopulateQueryParameters(&protoReq, req.Form, filter_Events_Delete_0); err != nil {
+	if err := runtime.PopulateQueryParameters(&protoReq, req.Form, filter_TestEvents_Delete_0); err != nil {
 		return nil, metadata, status.Errorf(codes.InvalidArgument, "%v", err)
 	}
 
@@ -437,17 +437,17 @@ func request_Events_Delete_0(ctx context.Context, marshaler runtime.Marshaler, c
 }
 
 var (
-	filter_Events_List_0 = &utilities.DoubleArray{Encoding: map[string]int{}, Base: []int(nil), Check: []int(nil)}
+	filter_TestEvents_List_0 = &utilities.DoubleArray{Encoding: map[string]int{}, Base: []int(nil), Check: []int(nil)}
 )
 
-func request_Events_List_0(ctx context.Context, marshaler runtime.Marshaler, client EventsClient, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
-	var protoReq ListEventRequest
+func request_TestEvents_List_0(ctx context.Context, marshaler runtime.Marshaler, client TestEventsClient, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
+	var protoReq ListTestEventRequest
 	var metadata runtime.ServerMetadata
 
 	if err := req.ParseForm(); err != nil {
 		return nil, metadata, status.Errorf(codes.InvalidArgument, "%v", err)
 	}
-	if err := runtime.PopulateQueryParameters(&protoReq, req.Form, filter_Events_List_0); err != nil {
+	if err := runtime.PopulateQueryParameters(&protoReq, req.Form, filter_TestEvents_List_0); err != nil {
 		return nil, metadata, status.Errorf(codes.InvalidArgument, "%v", err)
 	}
 
@@ -645,9 +645,9 @@ var (
 	forward_Applications_List_0 = runtime.ForwardResponseMessage
 )
 
-// RegisterEventsHandlerFromEndpoint is same as RegisterEventsHandler but
+// RegisterTestEventsHandlerFromEndpoint is same as RegisterTestEventsHandler but
 // automatically dials to "endpoint" and closes the connection when "ctx" gets done.
-func RegisterEventsHandlerFromEndpoint(ctx context.Context, mux *runtime.ServeMux, endpoint string, opts []grpc.DialOption) (err error) {
+func RegisterTestEventsHandlerFromEndpoint(ctx context.Context, mux *runtime.ServeMux, endpoint string, opts []grpc.DialOption) (err error) {
 	conn, err := grpc.Dial(endpoint, opts...)
 	if err != nil {
 		return err
@@ -667,23 +667,23 @@ func RegisterEventsHandlerFromEndpoint(ctx context.Context, mux *runtime.ServeMu
 		}()
 	}()
 
-	return RegisterEventsHandler(ctx, mux, conn)
+	return RegisterTestEventsHandler(ctx, mux, conn)
 }
 
-// RegisterEventsHandler registers the http handlers for service Events to "mux".
+// RegisterTestEventsHandler registers the http handlers for service TestEvents to "mux".
 // The handlers forward requests to the grpc endpoint over "conn".
-func RegisterEventsHandler(ctx context.Context, mux *runtime.ServeMux, conn *grpc.ClientConn) error {
-	return RegisterEventsHandlerClient(ctx, mux, NewEventsClient(conn))
+func RegisterTestEventsHandler(ctx context.Context, mux *runtime.ServeMux, conn *grpc.ClientConn) error {
+	return RegisterTestEventsHandlerClient(ctx, mux, NewTestEventsClient(conn))
 }
 
-// RegisterEventsHandlerClient registers the http handlers for service Events
-// to "mux". The handlers forward requests to the grpc endpoint over the given implementation of "EventsClient".
-// Note: the gRPC framework executes interceptors within the gRPC handler. If the passed in "EventsClient"
+// RegisterTestEventsHandlerClient registers the http handlers for service TestEvents
+// to "mux". The handlers forward requests to the grpc endpoint over the given implementation of "TestEventsClient".
+// Note: the gRPC framework executes interceptors within the gRPC handler. If the passed in "TestEventsClient"
 // doesn't go through the normal gRPC flow (creating a gRPC client etc.) then it will be up to the passed in
-// "EventsClient" to call the correct interceptors.
-func RegisterEventsHandlerClient(ctx context.Context, mux *runtime.ServeMux, client EventsClient) error {
+// "TestEventsClient" to call the correct interceptors.
+func RegisterTestEventsHandlerClient(ctx context.Context, mux *runtime.ServeMux, client TestEventsClient) error {
 
-	mux.Handle("POST", pattern_Events_Create_0, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
+	mux.Handle("POST", pattern_TestEvents_Create_0, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
 		ctx, cancel := context.WithCancel(req.Context())
 		defer cancel()
 		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
@@ -692,18 +692,18 @@ func RegisterEventsHandlerClient(ctx context.Context, mux *runtime.ServeMux, cli
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
 		}
-		resp, md, err := request_Events_Create_0(rctx, inboundMarshaler, client, req, pathParams)
+		resp, md, err := request_TestEvents_Create_0(rctx, inboundMarshaler, client, req, pathParams)
 		ctx = runtime.NewServerMetadataContext(ctx, md)
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
 		}
 
-		forward_Events_Create_0(ctx, mux, outboundMarshaler, w, req, resp, mux.GetForwardResponseOptions()...)
+		forward_TestEvents_Create_0(ctx, mux, outboundMarshaler, w, req, resp, mux.GetForwardResponseOptions()...)
 
 	})
 
-	mux.Handle("GET", pattern_Events_Read_0, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
+	mux.Handle("GET", pattern_TestEvents_Read_0, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
 		ctx, cancel := context.WithCancel(req.Context())
 		defer cancel()
 		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
@@ -712,18 +712,18 @@ func RegisterEventsHandlerClient(ctx context.Context, mux *runtime.ServeMux, cli
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
 		}
-		resp, md, err := request_Events_Read_0(rctx, inboundMarshaler, client, req, pathParams)
+		resp, md, err := request_TestEvents_Read_0(rctx, inboundMarshaler, client, req, pathParams)
 		ctx = runtime.NewServerMetadataContext(ctx, md)
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
 		}
 
-		forward_Events_Read_0(ctx, mux, outboundMarshaler, w, req, resp, mux.GetForwardResponseOptions()...)
+		forward_TestEvents_Read_0(ctx, mux, outboundMarshaler, w, req, resp, mux.GetForwardResponseOptions()...)
 
 	})
 
-	mux.Handle("PUT", pattern_Events_Update_0, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
+	mux.Handle("PUT", pattern_TestEvents_Update_0, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
 		ctx, cancel := context.WithCancel(req.Context())
 		defer cancel()
 		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
@@ -732,18 +732,18 @@ func RegisterEventsHandlerClient(ctx context.Context, mux *runtime.ServeMux, cli
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
 		}
-		resp, md, err := request_Events_Update_0(rctx, inboundMarshaler, client, req, pathParams)
+		resp, md, err := request_TestEvents_Update_0(rctx, inboundMarshaler, client, req, pathParams)
 		ctx = runtime.NewServerMetadataContext(ctx, md)
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
 		}
 
-		forward_Events_Update_0(ctx, mux, outboundMarshaler, w, req, resp, mux.GetForwardResponseOptions()...)
+		forward_TestEvents_Update_0(ctx, mux, outboundMarshaler, w, req, resp, mux.GetForwardResponseOptions()...)
 
 	})
 
-	mux.Handle("PATCH", pattern_Events_Update_1, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
+	mux.Handle("PATCH", pattern_TestEvents_Update_1, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
 		ctx, cancel := context.WithCancel(req.Context())
 		defer cancel()
 		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
@@ -752,18 +752,18 @@ func RegisterEventsHandlerClient(ctx context.Context, mux *runtime.ServeMux, cli
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
 		}
-		resp, md, err := request_Events_Update_1(rctx, inboundMarshaler, client, req, pathParams)
+		resp, md, err := request_TestEvents_Update_1(rctx, inboundMarshaler, client, req, pathParams)
 		ctx = runtime.NewServerMetadataContext(ctx, md)
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
 		}
 
-		forward_Events_Update_1(ctx, mux, outboundMarshaler, w, req, resp, mux.GetForwardResponseOptions()...)
+		forward_TestEvents_Update_1(ctx, mux, outboundMarshaler, w, req, resp, mux.GetForwardResponseOptions()...)
 
 	})
 
-	mux.Handle("DELETE", pattern_Events_Delete_0, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
+	mux.Handle("DELETE", pattern_TestEvents_Delete_0, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
 		ctx, cancel := context.WithCancel(req.Context())
 		defer cancel()
 		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
@@ -772,18 +772,18 @@ func RegisterEventsHandlerClient(ctx context.Context, mux *runtime.ServeMux, cli
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
 		}
-		resp, md, err := request_Events_Delete_0(rctx, inboundMarshaler, client, req, pathParams)
+		resp, md, err := request_TestEvents_Delete_0(rctx, inboundMarshaler, client, req, pathParams)
 		ctx = runtime.NewServerMetadataContext(ctx, md)
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
 		}
 
-		forward_Events_Delete_0(ctx, mux, outboundMarshaler, w, req, resp, mux.GetForwardResponseOptions()...)
+		forward_TestEvents_Delete_0(ctx, mux, outboundMarshaler, w, req, resp, mux.GetForwardResponseOptions()...)
 
 	})
 
-	mux.Handle("GET", pattern_Events_List_0, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
+	mux.Handle("GET", pattern_TestEvents_List_0, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
 		ctx, cancel := context.WithCancel(req.Context())
 		defer cancel()
 		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
@@ -792,14 +792,14 @@ func RegisterEventsHandlerClient(ctx context.Context, mux *runtime.ServeMux, cli
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
 		}
-		resp, md, err := request_Events_List_0(rctx, inboundMarshaler, client, req, pathParams)
+		resp, md, err := request_TestEvents_List_0(rctx, inboundMarshaler, client, req, pathParams)
 		ctx = runtime.NewServerMetadataContext(ctx, md)
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
 		}
 
-		forward_Events_List_0(ctx, mux, outboundMarshaler, w, req, resp, mux.GetForwardResponseOptions()...)
+		forward_TestEvents_List_0(ctx, mux, outboundMarshaler, w, req, resp, mux.GetForwardResponseOptions()...)
 
 	})
 
@@ -807,29 +807,29 @@ func RegisterEventsHandlerClient(ctx context.Context, mux *runtime.ServeMux, cli
 }
 
 var (
-	pattern_Events_Create_0 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0}, []string{"events"}, "", runtime.AssumeColonVerbOpt(true)))
+	pattern_TestEvents_Create_0 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0}, []string{"test_events"}, "", runtime.AssumeColonVerbOpt(true)))
 
-	pattern_Events_Read_0 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 1, 0, 4, 1, 5, 1}, []string{"events", "id.resource_id"}, "", runtime.AssumeColonVerbOpt(true)))
+	pattern_TestEvents_Read_0 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 1, 0, 4, 1, 5, 1}, []string{"test_events", "id.resource_id"}, "", runtime.AssumeColonVerbOpt(true)))
 
-	pattern_Events_Update_0 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 1, 0, 4, 1, 5, 1}, []string{"events", "payload.id.resource_id"}, "", runtime.AssumeColonVerbOpt(true)))
+	pattern_TestEvents_Update_0 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 1, 0, 4, 1, 5, 1}, []string{"test_events", "payload.id.resource_id"}, "", runtime.AssumeColonVerbOpt(true)))
 
-	pattern_Events_Update_1 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 1, 0, 4, 1, 5, 1}, []string{"events", "payload.id.resource_id"}, "", runtime.AssumeColonVerbOpt(true)))
+	pattern_TestEvents_Update_1 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 1, 0, 4, 1, 5, 1}, []string{"test_events", "payload.id.resource_id"}, "", runtime.AssumeColonVerbOpt(true)))
 
-	pattern_Events_Delete_0 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 1, 0, 4, 1, 5, 1}, []string{"events", "id.resource_id"}, "", runtime.AssumeColonVerbOpt(true)))
+	pattern_TestEvents_Delete_0 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 1, 0, 4, 1, 5, 1}, []string{"test_events", "id.resource_id"}, "", runtime.AssumeColonVerbOpt(true)))
 
-	pattern_Events_List_0 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0}, []string{"events"}, "", runtime.AssumeColonVerbOpt(true)))
+	pattern_TestEvents_List_0 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0}, []string{"test_events"}, "", runtime.AssumeColonVerbOpt(true)))
 )
 
 var (
-	forward_Events_Create_0 = runtime.ForwardResponseMessage
+	forward_TestEvents_Create_0 = runtime.ForwardResponseMessage
 
-	forward_Events_Read_0 = runtime.ForwardResponseMessage
+	forward_TestEvents_Read_0 = runtime.ForwardResponseMessage
 
-	forward_Events_Update_0 = runtime.ForwardResponseMessage
+	forward_TestEvents_Update_0 = runtime.ForwardResponseMessage
 
-	forward_Events_Update_1 = runtime.ForwardResponseMessage
+	forward_TestEvents_Update_1 = runtime.ForwardResponseMessage
 
-	forward_Events_Delete_0 = runtime.ForwardResponseMessage
+	forward_TestEvents_Delete_0 = runtime.ForwardResponseMessage
 
-	forward_Events_List_0 = runtime.ForwardResponseMessage
+	forward_TestEvents_List_0 = runtime.ForwardResponseMessage
 )

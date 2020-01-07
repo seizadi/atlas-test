@@ -218,13 +218,13 @@
         }
       }
     },
-    "/events": {
+    "/test_events": {
       "get": {
         "tags": [
-          "Events"
+          "TestEvents"
         ],
-        "summary": "Use this method to retrieve all the Events.",
-        "operationId": "EventsList",
+        "summary": "Use this method to retrieve all the TestEvents.",
+        "operationId": "TestEventsList",
         "parameters": [
           {
             "type": "string",
@@ -267,24 +267,24 @@
           "200": {
             "description": "GET operation response",
             "schema": {
-              "$ref": "#/definitions/testListEventsResponse"
+              "$ref": "#/definitions/testListTestEventsResponse"
             }
           }
         }
       },
       "post": {
         "tags": [
-          "Events"
+          "TestEvents"
         ],
-        "summary": "Use this method to create a Event information.",
-        "operationId": "EventsCreate",
+        "summary": "Use this method to create a TestEvent information.",
+        "operationId": "TestEventsCreate",
         "parameters": [
           {
             "name": "body",
             "in": "body",
             "required": true,
             "schema": {
-              "$ref": "#/definitions/testEvent"
+              "$ref": "#/definitions/testTestEvent"
             }
           }
         ],
@@ -292,19 +292,19 @@
           "201": {
             "description": "POST operation response",
             "schema": {
-              "$ref": "#/definitions/testCreateEventResponse"
+              "$ref": "#/definitions/testCreateTestEventResponse"
             }
           }
         }
       }
     },
-    "/events/{id}": {
+    "/test_events/{id}": {
       "get": {
         "tags": [
-          "Events"
+          "TestEvents"
         ],
-        "summary": "Use this method to read a Event information by identifier.",
-        "operationId": "EventsRead",
+        "summary": "Use this method to read a TestEvent information by identifier.",
+        "operationId": "TestEventsRead",
         "parameters": [
           {
             "type": "string",
@@ -324,17 +324,17 @@
           "200": {
             "description": "GET operation response",
             "schema": {
-              "$ref": "#/definitions/testReadEventResponse"
+              "$ref": "#/definitions/testReadTestEventResponse"
             }
           }
         }
       },
       "put": {
         "tags": [
-          "Events"
+          "TestEvents"
         ],
-        "summary": "Use this method to update a Event information.",
-        "operationId": "EventsUpdate",
+        "summary": "Use this method to update a TestEvent information.",
+        "operationId": "TestEventsUpdate",
         "parameters": [
           {
             "type": "string",
@@ -348,7 +348,7 @@
             "in": "body",
             "required": true,
             "schema": {
-              "$ref": "#/definitions/testEvent"
+              "$ref": "#/definitions/testTestEvent"
             }
           }
         ],
@@ -356,17 +356,17 @@
           "201": {
             "description": "PUT operation response",
             "schema": {
-              "$ref": "#/definitions/testUpdateEventResponse"
+              "$ref": "#/definitions/testUpdateTestEventResponse"
             }
           }
         }
       },
       "delete": {
         "tags": [
-          "Events"
+          "TestEvents"
         ],
-        "summary": "Use this method to delete a particular Event.",
-        "operationId": "EventsDelete",
+        "summary": "Use this method to delete a particular TestEvent.",
+        "operationId": "TestEventsDelete",
         "parameters": [
           {
             "type": "string",
@@ -384,10 +384,10 @@
       },
       "patch": {
         "tags": [
-          "Events"
+          "TestEvents"
         ],
-        "summary": "Use this method to update a Event information.",
-        "operationId": "EventsUpdate2",
+        "summary": "Use this method to update a TestEvent information.",
+        "operationId": "TestEventsUpdate2",
         "parameters": [
           {
             "type": "string",
@@ -401,7 +401,7 @@
             "in": "body",
             "required": true,
             "schema": {
-              "$ref": "#/definitions/testEvent"
+              "$ref": "#/definitions/testTestEvent"
             }
           }
         ],
@@ -409,7 +409,7 @@
           "201": {
             "description": "PATCH operation response",
             "schema": {
-              "$ref": "#/definitions/testUpdateEventResponse"
+              "$ref": "#/definitions/testUpdateTestEventResponse"
             }
           }
         }
@@ -464,39 +464,11 @@
         }
       }
     },
-    "testCreateEventResponse": {
+    "testCreateTestEventResponse": {
       "type": "object",
       "properties": {
         "result": {
-          "$ref": "#/definitions/testEvent"
-        }
-      }
-    },
-    "testEvent": {
-      "type": "object",
-      "title": "-------------------------------------------------\nEvent\n-------------------------------------------------",
-      "properties": {
-        "application_id": {
-          "description": "The resource identifier.",
-          "type": "string"
-        },
-        "description": {
-          "type": "string",
-          "title": "The description of the Event"
-        },
-        "event_time": {
-          "type": "string",
-          "format": "date-time",
-          "title": "The timestamp of the Event"
-        },
-        "id": {
-          "description": "The resource identifier.",
-          "type": "string",
-          "readOnly": true
-        },
-        "name": {
-          "type": "string",
-          "title": "The name of the Event"
+          "$ref": "#/definitions/testTestEvent"
         }
       }
     },
@@ -514,7 +486,7 @@
         }
       }
     },
-    "testListEventsResponse": {
+    "testListTestEventsResponse": {
       "type": "object",
       "properties": {
         "page": {
@@ -523,7 +495,7 @@
         "results": {
           "type": "array",
           "items": {
-            "$ref": "#/definitions/testEvent"
+            "$ref": "#/definitions/testTestEvent"
           }
         }
       }
@@ -536,11 +508,39 @@
         }
       }
     },
-    "testReadEventResponse": {
+    "testReadTestEventResponse": {
       "type": "object",
       "properties": {
         "result": {
-          "$ref": "#/definitions/testEvent"
+          "$ref": "#/definitions/testTestEvent"
+        }
+      }
+    },
+    "testTestEvent": {
+      "type": "object",
+      "title": "-------------------------------------------------\nTestEvent\n-------------------------------------------------",
+      "properties": {
+        "application_id": {
+          "description": "The resource identifier.",
+          "type": "string"
+        },
+        "description": {
+          "type": "string",
+          "title": "The description of the TestEvent"
+        },
+        "event_time": {
+          "type": "string",
+          "format": "date-time",
+          "title": "The timestamp of the TestEvent"
+        },
+        "id": {
+          "description": "The resource identifier.",
+          "type": "string",
+          "readOnly": true
+        },
+        "name": {
+          "type": "string",
+          "title": "The name of the TestEvent"
         }
       }
     },
@@ -552,11 +552,11 @@
         }
       }
     },
-    "testUpdateEventResponse": {
+    "testUpdateTestEventResponse": {
       "type": "object",
       "properties": {
         "result": {
-          "$ref": "#/definitions/testEvent"
+          "$ref": "#/definitions/testTestEvent"
         }
       }
     }

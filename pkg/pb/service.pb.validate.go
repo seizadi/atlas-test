@@ -1005,16 +1005,16 @@ var _ interface {
 	ErrorName() string
 } = ListApplicationsResponseValidationError{}
 
-// Validate checks the field values on Event with the rules defined in the
+// Validate checks the field values on TestEvent with the rules defined in the
 // proto definition for this message. If any rules are violated, an error is returned.
-func (m *Event) Validate() error {
+func (m *TestEvent) Validate() error {
 	if m == nil {
 		return nil
 	}
 
 	if v, ok := interface{}(m.GetId()).(interface{ Validate() error }); ok {
 		if err := v.Validate(); err != nil {
-			return EventValidationError{
+			return TestEventValidationError{
 				field:  "Id",
 				reason: "embedded message failed validation",
 				cause:  err,
@@ -1028,7 +1028,7 @@ func (m *Event) Validate() error {
 
 	if v, ok := interface{}(m.GetEventTime()).(interface{ Validate() error }); ok {
 		if err := v.Validate(); err != nil {
-			return EventValidationError{
+			return TestEventValidationError{
 				field:  "EventTime",
 				reason: "embedded message failed validation",
 				cause:  err,
@@ -1038,7 +1038,7 @@ func (m *Event) Validate() error {
 
 	if v, ok := interface{}(m.GetApplicationId()).(interface{ Validate() error }); ok {
 		if err := v.Validate(); err != nil {
-			return EventValidationError{
+			return TestEventValidationError{
 				field:  "ApplicationId",
 				reason: "embedded message failed validation",
 				cause:  err,
@@ -1049,9 +1049,9 @@ func (m *Event) Validate() error {
 	return nil
 }
 
-// EventValidationError is the validation error returned by Event.Validate if
-// the designated constraints aren't met.
-type EventValidationError struct {
+// TestEventValidationError is the validation error returned by
+// TestEvent.Validate if the designated constraints aren't met.
+type TestEventValidationError struct {
 	field  string
 	reason string
 	cause  error
@@ -1059,22 +1059,22 @@ type EventValidationError struct {
 }
 
 // Field function returns field value.
-func (e EventValidationError) Field() string { return e.field }
+func (e TestEventValidationError) Field() string { return e.field }
 
 // Reason function returns reason value.
-func (e EventValidationError) Reason() string { return e.reason }
+func (e TestEventValidationError) Reason() string { return e.reason }
 
 // Cause function returns cause value.
-func (e EventValidationError) Cause() error { return e.cause }
+func (e TestEventValidationError) Cause() error { return e.cause }
 
 // Key function returns key value.
-func (e EventValidationError) Key() bool { return e.key }
+func (e TestEventValidationError) Key() bool { return e.key }
 
 // ErrorName returns error name.
-func (e EventValidationError) ErrorName() string { return "EventValidationError" }
+func (e TestEventValidationError) ErrorName() string { return "TestEventValidationError" }
 
 // Error satisfies the builtin error interface
-func (e EventValidationError) Error() string {
+func (e TestEventValidationError) Error() string {
 	cause := ""
 	if e.cause != nil {
 		cause = fmt.Sprintf(" | caused by: %v", e.cause)
@@ -1086,14 +1086,14 @@ func (e EventValidationError) Error() string {
 	}
 
 	return fmt.Sprintf(
-		"invalid %sEvent.%s: %s%s",
+		"invalid %sTestEvent.%s: %s%s",
 		key,
 		e.field,
 		e.reason,
 		cause)
 }
 
-var _ error = EventValidationError{}
+var _ error = TestEventValidationError{}
 
 var _ interface {
 	Field() string
@@ -1101,19 +1101,19 @@ var _ interface {
 	Key() bool
 	Cause() error
 	ErrorName() string
-} = EventValidationError{}
+} = TestEventValidationError{}
 
-// Validate checks the field values on CreateEventRequest with the rules
+// Validate checks the field values on CreateTestEventRequest with the rules
 // defined in the proto definition for this message. If any rules are
 // violated, an error is returned.
-func (m *CreateEventRequest) Validate() error {
+func (m *CreateTestEventRequest) Validate() error {
 	if m == nil {
 		return nil
 	}
 
 	if v, ok := interface{}(m.GetPayload()).(interface{ Validate() error }); ok {
 		if err := v.Validate(); err != nil {
-			return CreateEventRequestValidationError{
+			return CreateTestEventRequestValidationError{
 				field:  "Payload",
 				reason: "embedded message failed validation",
 				cause:  err,
@@ -1124,9 +1124,9 @@ func (m *CreateEventRequest) Validate() error {
 	return nil
 }
 
-// CreateEventRequestValidationError is the validation error returned by
-// CreateEventRequest.Validate if the designated constraints aren't met.
-type CreateEventRequestValidationError struct {
+// CreateTestEventRequestValidationError is the validation error returned by
+// CreateTestEventRequest.Validate if the designated constraints aren't met.
+type CreateTestEventRequestValidationError struct {
 	field  string
 	reason string
 	cause  error
@@ -1134,24 +1134,24 @@ type CreateEventRequestValidationError struct {
 }
 
 // Field function returns field value.
-func (e CreateEventRequestValidationError) Field() string { return e.field }
+func (e CreateTestEventRequestValidationError) Field() string { return e.field }
 
 // Reason function returns reason value.
-func (e CreateEventRequestValidationError) Reason() string { return e.reason }
+func (e CreateTestEventRequestValidationError) Reason() string { return e.reason }
 
 // Cause function returns cause value.
-func (e CreateEventRequestValidationError) Cause() error { return e.cause }
+func (e CreateTestEventRequestValidationError) Cause() error { return e.cause }
 
 // Key function returns key value.
-func (e CreateEventRequestValidationError) Key() bool { return e.key }
+func (e CreateTestEventRequestValidationError) Key() bool { return e.key }
 
 // ErrorName returns error name.
-func (e CreateEventRequestValidationError) ErrorName() string {
-	return "CreateEventRequestValidationError"
+func (e CreateTestEventRequestValidationError) ErrorName() string {
+	return "CreateTestEventRequestValidationError"
 }
 
 // Error satisfies the builtin error interface
-func (e CreateEventRequestValidationError) Error() string {
+func (e CreateTestEventRequestValidationError) Error() string {
 	cause := ""
 	if e.cause != nil {
 		cause = fmt.Sprintf(" | caused by: %v", e.cause)
@@ -1163,14 +1163,14 @@ func (e CreateEventRequestValidationError) Error() string {
 	}
 
 	return fmt.Sprintf(
-		"invalid %sCreateEventRequest.%s: %s%s",
+		"invalid %sCreateTestEventRequest.%s: %s%s",
 		key,
 		e.field,
 		e.reason,
 		cause)
 }
 
-var _ error = CreateEventRequestValidationError{}
+var _ error = CreateTestEventRequestValidationError{}
 
 var _ interface {
 	Field() string
@@ -1178,19 +1178,19 @@ var _ interface {
 	Key() bool
 	Cause() error
 	ErrorName() string
-} = CreateEventRequestValidationError{}
+} = CreateTestEventRequestValidationError{}
 
-// Validate checks the field values on CreateEventResponse with the rules
+// Validate checks the field values on CreateTestEventResponse with the rules
 // defined in the proto definition for this message. If any rules are
 // violated, an error is returned.
-func (m *CreateEventResponse) Validate() error {
+func (m *CreateTestEventResponse) Validate() error {
 	if m == nil {
 		return nil
 	}
 
 	if v, ok := interface{}(m.GetResult()).(interface{ Validate() error }); ok {
 		if err := v.Validate(); err != nil {
-			return CreateEventResponseValidationError{
+			return CreateTestEventResponseValidationError{
 				field:  "Result",
 				reason: "embedded message failed validation",
 				cause:  err,
@@ -1201,9 +1201,9 @@ func (m *CreateEventResponse) Validate() error {
 	return nil
 }
 
-// CreateEventResponseValidationError is the validation error returned by
-// CreateEventResponse.Validate if the designated constraints aren't met.
-type CreateEventResponseValidationError struct {
+// CreateTestEventResponseValidationError is the validation error returned by
+// CreateTestEventResponse.Validate if the designated constraints aren't met.
+type CreateTestEventResponseValidationError struct {
 	field  string
 	reason string
 	cause  error
@@ -1211,24 +1211,24 @@ type CreateEventResponseValidationError struct {
 }
 
 // Field function returns field value.
-func (e CreateEventResponseValidationError) Field() string { return e.field }
+func (e CreateTestEventResponseValidationError) Field() string { return e.field }
 
 // Reason function returns reason value.
-func (e CreateEventResponseValidationError) Reason() string { return e.reason }
+func (e CreateTestEventResponseValidationError) Reason() string { return e.reason }
 
 // Cause function returns cause value.
-func (e CreateEventResponseValidationError) Cause() error { return e.cause }
+func (e CreateTestEventResponseValidationError) Cause() error { return e.cause }
 
 // Key function returns key value.
-func (e CreateEventResponseValidationError) Key() bool { return e.key }
+func (e CreateTestEventResponseValidationError) Key() bool { return e.key }
 
 // ErrorName returns error name.
-func (e CreateEventResponseValidationError) ErrorName() string {
-	return "CreateEventResponseValidationError"
+func (e CreateTestEventResponseValidationError) ErrorName() string {
+	return "CreateTestEventResponseValidationError"
 }
 
 // Error satisfies the builtin error interface
-func (e CreateEventResponseValidationError) Error() string {
+func (e CreateTestEventResponseValidationError) Error() string {
 	cause := ""
 	if e.cause != nil {
 		cause = fmt.Sprintf(" | caused by: %v", e.cause)
@@ -1240,14 +1240,14 @@ func (e CreateEventResponseValidationError) Error() string {
 	}
 
 	return fmt.Sprintf(
-		"invalid %sCreateEventResponse.%s: %s%s",
+		"invalid %sCreateTestEventResponse.%s: %s%s",
 		key,
 		e.field,
 		e.reason,
 		cause)
 }
 
-var _ error = CreateEventResponseValidationError{}
+var _ error = CreateTestEventResponseValidationError{}
 
 var _ interface {
 	Field() string
@@ -1255,19 +1255,19 @@ var _ interface {
 	Key() bool
 	Cause() error
 	ErrorName() string
-} = CreateEventResponseValidationError{}
+} = CreateTestEventResponseValidationError{}
 
-// Validate checks the field values on ReadEventRequest with the rules defined
-// in the proto definition for this message. If any rules are violated, an
-// error is returned.
-func (m *ReadEventRequest) Validate() error {
+// Validate checks the field values on ReadTestEventRequest with the rules
+// defined in the proto definition for this message. If any rules are
+// violated, an error is returned.
+func (m *ReadTestEventRequest) Validate() error {
 	if m == nil {
 		return nil
 	}
 
 	if v, ok := interface{}(m.GetId()).(interface{ Validate() error }); ok {
 		if err := v.Validate(); err != nil {
-			return ReadEventRequestValidationError{
+			return ReadTestEventRequestValidationError{
 				field:  "Id",
 				reason: "embedded message failed validation",
 				cause:  err,
@@ -1277,7 +1277,7 @@ func (m *ReadEventRequest) Validate() error {
 
 	if v, ok := interface{}(m.GetFields()).(interface{ Validate() error }); ok {
 		if err := v.Validate(); err != nil {
-			return ReadEventRequestValidationError{
+			return ReadTestEventRequestValidationError{
 				field:  "Fields",
 				reason: "embedded message failed validation",
 				cause:  err,
@@ -1288,9 +1288,9 @@ func (m *ReadEventRequest) Validate() error {
 	return nil
 }
 
-// ReadEventRequestValidationError is the validation error returned by
-// ReadEventRequest.Validate if the designated constraints aren't met.
-type ReadEventRequestValidationError struct {
+// ReadTestEventRequestValidationError is the validation error returned by
+// ReadTestEventRequest.Validate if the designated constraints aren't met.
+type ReadTestEventRequestValidationError struct {
 	field  string
 	reason string
 	cause  error
@@ -1298,22 +1298,24 @@ type ReadEventRequestValidationError struct {
 }
 
 // Field function returns field value.
-func (e ReadEventRequestValidationError) Field() string { return e.field }
+func (e ReadTestEventRequestValidationError) Field() string { return e.field }
 
 // Reason function returns reason value.
-func (e ReadEventRequestValidationError) Reason() string { return e.reason }
+func (e ReadTestEventRequestValidationError) Reason() string { return e.reason }
 
 // Cause function returns cause value.
-func (e ReadEventRequestValidationError) Cause() error { return e.cause }
+func (e ReadTestEventRequestValidationError) Cause() error { return e.cause }
 
 // Key function returns key value.
-func (e ReadEventRequestValidationError) Key() bool { return e.key }
+func (e ReadTestEventRequestValidationError) Key() bool { return e.key }
 
 // ErrorName returns error name.
-func (e ReadEventRequestValidationError) ErrorName() string { return "ReadEventRequestValidationError" }
+func (e ReadTestEventRequestValidationError) ErrorName() string {
+	return "ReadTestEventRequestValidationError"
+}
 
 // Error satisfies the builtin error interface
-func (e ReadEventRequestValidationError) Error() string {
+func (e ReadTestEventRequestValidationError) Error() string {
 	cause := ""
 	if e.cause != nil {
 		cause = fmt.Sprintf(" | caused by: %v", e.cause)
@@ -1325,14 +1327,14 @@ func (e ReadEventRequestValidationError) Error() string {
 	}
 
 	return fmt.Sprintf(
-		"invalid %sReadEventRequest.%s: %s%s",
+		"invalid %sReadTestEventRequest.%s: %s%s",
 		key,
 		e.field,
 		e.reason,
 		cause)
 }
 
-var _ error = ReadEventRequestValidationError{}
+var _ error = ReadTestEventRequestValidationError{}
 
 var _ interface {
 	Field() string
@@ -1340,19 +1342,19 @@ var _ interface {
 	Key() bool
 	Cause() error
 	ErrorName() string
-} = ReadEventRequestValidationError{}
+} = ReadTestEventRequestValidationError{}
 
-// Validate checks the field values on ReadEventResponse with the rules defined
-// in the proto definition for this message. If any rules are violated, an
-// error is returned.
-func (m *ReadEventResponse) Validate() error {
+// Validate checks the field values on ReadTestEventResponse with the rules
+// defined in the proto definition for this message. If any rules are
+// violated, an error is returned.
+func (m *ReadTestEventResponse) Validate() error {
 	if m == nil {
 		return nil
 	}
 
 	if v, ok := interface{}(m.GetResult()).(interface{ Validate() error }); ok {
 		if err := v.Validate(); err != nil {
-			return ReadEventResponseValidationError{
+			return ReadTestEventResponseValidationError{
 				field:  "Result",
 				reason: "embedded message failed validation",
 				cause:  err,
@@ -1363,9 +1365,9 @@ func (m *ReadEventResponse) Validate() error {
 	return nil
 }
 
-// ReadEventResponseValidationError is the validation error returned by
-// ReadEventResponse.Validate if the designated constraints aren't met.
-type ReadEventResponseValidationError struct {
+// ReadTestEventResponseValidationError is the validation error returned by
+// ReadTestEventResponse.Validate if the designated constraints aren't met.
+type ReadTestEventResponseValidationError struct {
 	field  string
 	reason string
 	cause  error
@@ -1373,24 +1375,24 @@ type ReadEventResponseValidationError struct {
 }
 
 // Field function returns field value.
-func (e ReadEventResponseValidationError) Field() string { return e.field }
+func (e ReadTestEventResponseValidationError) Field() string { return e.field }
 
 // Reason function returns reason value.
-func (e ReadEventResponseValidationError) Reason() string { return e.reason }
+func (e ReadTestEventResponseValidationError) Reason() string { return e.reason }
 
 // Cause function returns cause value.
-func (e ReadEventResponseValidationError) Cause() error { return e.cause }
+func (e ReadTestEventResponseValidationError) Cause() error { return e.cause }
 
 // Key function returns key value.
-func (e ReadEventResponseValidationError) Key() bool { return e.key }
+func (e ReadTestEventResponseValidationError) Key() bool { return e.key }
 
 // ErrorName returns error name.
-func (e ReadEventResponseValidationError) ErrorName() string {
-	return "ReadEventResponseValidationError"
+func (e ReadTestEventResponseValidationError) ErrorName() string {
+	return "ReadTestEventResponseValidationError"
 }
 
 // Error satisfies the builtin error interface
-func (e ReadEventResponseValidationError) Error() string {
+func (e ReadTestEventResponseValidationError) Error() string {
 	cause := ""
 	if e.cause != nil {
 		cause = fmt.Sprintf(" | caused by: %v", e.cause)
@@ -1402,14 +1404,14 @@ func (e ReadEventResponseValidationError) Error() string {
 	}
 
 	return fmt.Sprintf(
-		"invalid %sReadEventResponse.%s: %s%s",
+		"invalid %sReadTestEventResponse.%s: %s%s",
 		key,
 		e.field,
 		e.reason,
 		cause)
 }
 
-var _ error = ReadEventResponseValidationError{}
+var _ error = ReadTestEventResponseValidationError{}
 
 var _ interface {
 	Field() string
@@ -1417,19 +1419,19 @@ var _ interface {
 	Key() bool
 	Cause() error
 	ErrorName() string
-} = ReadEventResponseValidationError{}
+} = ReadTestEventResponseValidationError{}
 
-// Validate checks the field values on UpdateEventRequest with the rules
+// Validate checks the field values on UpdateTestEventRequest with the rules
 // defined in the proto definition for this message. If any rules are
 // violated, an error is returned.
-func (m *UpdateEventRequest) Validate() error {
+func (m *UpdateTestEventRequest) Validate() error {
 	if m == nil {
 		return nil
 	}
 
 	if v, ok := interface{}(m.GetPayload()).(interface{ Validate() error }); ok {
 		if err := v.Validate(); err != nil {
-			return UpdateEventRequestValidationError{
+			return UpdateTestEventRequestValidationError{
 				field:  "Payload",
 				reason: "embedded message failed validation",
 				cause:  err,
@@ -1439,7 +1441,7 @@ func (m *UpdateEventRequest) Validate() error {
 
 	if v, ok := interface{}(m.GetFields()).(interface{ Validate() error }); ok {
 		if err := v.Validate(); err != nil {
-			return UpdateEventRequestValidationError{
+			return UpdateTestEventRequestValidationError{
 				field:  "Fields",
 				reason: "embedded message failed validation",
 				cause:  err,
@@ -1450,9 +1452,9 @@ func (m *UpdateEventRequest) Validate() error {
 	return nil
 }
 
-// UpdateEventRequestValidationError is the validation error returned by
-// UpdateEventRequest.Validate if the designated constraints aren't met.
-type UpdateEventRequestValidationError struct {
+// UpdateTestEventRequestValidationError is the validation error returned by
+// UpdateTestEventRequest.Validate if the designated constraints aren't met.
+type UpdateTestEventRequestValidationError struct {
 	field  string
 	reason string
 	cause  error
@@ -1460,24 +1462,24 @@ type UpdateEventRequestValidationError struct {
 }
 
 // Field function returns field value.
-func (e UpdateEventRequestValidationError) Field() string { return e.field }
+func (e UpdateTestEventRequestValidationError) Field() string { return e.field }
 
 // Reason function returns reason value.
-func (e UpdateEventRequestValidationError) Reason() string { return e.reason }
+func (e UpdateTestEventRequestValidationError) Reason() string { return e.reason }
 
 // Cause function returns cause value.
-func (e UpdateEventRequestValidationError) Cause() error { return e.cause }
+func (e UpdateTestEventRequestValidationError) Cause() error { return e.cause }
 
 // Key function returns key value.
-func (e UpdateEventRequestValidationError) Key() bool { return e.key }
+func (e UpdateTestEventRequestValidationError) Key() bool { return e.key }
 
 // ErrorName returns error name.
-func (e UpdateEventRequestValidationError) ErrorName() string {
-	return "UpdateEventRequestValidationError"
+func (e UpdateTestEventRequestValidationError) ErrorName() string {
+	return "UpdateTestEventRequestValidationError"
 }
 
 // Error satisfies the builtin error interface
-func (e UpdateEventRequestValidationError) Error() string {
+func (e UpdateTestEventRequestValidationError) Error() string {
 	cause := ""
 	if e.cause != nil {
 		cause = fmt.Sprintf(" | caused by: %v", e.cause)
@@ -1489,14 +1491,14 @@ func (e UpdateEventRequestValidationError) Error() string {
 	}
 
 	return fmt.Sprintf(
-		"invalid %sUpdateEventRequest.%s: %s%s",
+		"invalid %sUpdateTestEventRequest.%s: %s%s",
 		key,
 		e.field,
 		e.reason,
 		cause)
 }
 
-var _ error = UpdateEventRequestValidationError{}
+var _ error = UpdateTestEventRequestValidationError{}
 
 var _ interface {
 	Field() string
@@ -1504,19 +1506,19 @@ var _ interface {
 	Key() bool
 	Cause() error
 	ErrorName() string
-} = UpdateEventRequestValidationError{}
+} = UpdateTestEventRequestValidationError{}
 
-// Validate checks the field values on UpdateEventResponse with the rules
+// Validate checks the field values on UpdateTestEventResponse with the rules
 // defined in the proto definition for this message. If any rules are
 // violated, an error is returned.
-func (m *UpdateEventResponse) Validate() error {
+func (m *UpdateTestEventResponse) Validate() error {
 	if m == nil {
 		return nil
 	}
 
 	if v, ok := interface{}(m.GetResult()).(interface{ Validate() error }); ok {
 		if err := v.Validate(); err != nil {
-			return UpdateEventResponseValidationError{
+			return UpdateTestEventResponseValidationError{
 				field:  "Result",
 				reason: "embedded message failed validation",
 				cause:  err,
@@ -1527,9 +1529,9 @@ func (m *UpdateEventResponse) Validate() error {
 	return nil
 }
 
-// UpdateEventResponseValidationError is the validation error returned by
-// UpdateEventResponse.Validate if the designated constraints aren't met.
-type UpdateEventResponseValidationError struct {
+// UpdateTestEventResponseValidationError is the validation error returned by
+// UpdateTestEventResponse.Validate if the designated constraints aren't met.
+type UpdateTestEventResponseValidationError struct {
 	field  string
 	reason string
 	cause  error
@@ -1537,24 +1539,24 @@ type UpdateEventResponseValidationError struct {
 }
 
 // Field function returns field value.
-func (e UpdateEventResponseValidationError) Field() string { return e.field }
+func (e UpdateTestEventResponseValidationError) Field() string { return e.field }
 
 // Reason function returns reason value.
-func (e UpdateEventResponseValidationError) Reason() string { return e.reason }
+func (e UpdateTestEventResponseValidationError) Reason() string { return e.reason }
 
 // Cause function returns cause value.
-func (e UpdateEventResponseValidationError) Cause() error { return e.cause }
+func (e UpdateTestEventResponseValidationError) Cause() error { return e.cause }
 
 // Key function returns key value.
-func (e UpdateEventResponseValidationError) Key() bool { return e.key }
+func (e UpdateTestEventResponseValidationError) Key() bool { return e.key }
 
 // ErrorName returns error name.
-func (e UpdateEventResponseValidationError) ErrorName() string {
-	return "UpdateEventResponseValidationError"
+func (e UpdateTestEventResponseValidationError) ErrorName() string {
+	return "UpdateTestEventResponseValidationError"
 }
 
 // Error satisfies the builtin error interface
-func (e UpdateEventResponseValidationError) Error() string {
+func (e UpdateTestEventResponseValidationError) Error() string {
 	cause := ""
 	if e.cause != nil {
 		cause = fmt.Sprintf(" | caused by: %v", e.cause)
@@ -1566,14 +1568,14 @@ func (e UpdateEventResponseValidationError) Error() string {
 	}
 
 	return fmt.Sprintf(
-		"invalid %sUpdateEventResponse.%s: %s%s",
+		"invalid %sUpdateTestEventResponse.%s: %s%s",
 		key,
 		e.field,
 		e.reason,
 		cause)
 }
 
-var _ error = UpdateEventResponseValidationError{}
+var _ error = UpdateTestEventResponseValidationError{}
 
 var _ interface {
 	Field() string
@@ -1581,19 +1583,19 @@ var _ interface {
 	Key() bool
 	Cause() error
 	ErrorName() string
-} = UpdateEventResponseValidationError{}
+} = UpdateTestEventResponseValidationError{}
 
-// Validate checks the field values on DeleteEventRequest with the rules
+// Validate checks the field values on DeleteTestEventRequest with the rules
 // defined in the proto definition for this message. If any rules are
 // violated, an error is returned.
-func (m *DeleteEventRequest) Validate() error {
+func (m *DeleteTestEventRequest) Validate() error {
 	if m == nil {
 		return nil
 	}
 
 	if v, ok := interface{}(m.GetId()).(interface{ Validate() error }); ok {
 		if err := v.Validate(); err != nil {
-			return DeleteEventRequestValidationError{
+			return DeleteTestEventRequestValidationError{
 				field:  "Id",
 				reason: "embedded message failed validation",
 				cause:  err,
@@ -1604,9 +1606,9 @@ func (m *DeleteEventRequest) Validate() error {
 	return nil
 }
 
-// DeleteEventRequestValidationError is the validation error returned by
-// DeleteEventRequest.Validate if the designated constraints aren't met.
-type DeleteEventRequestValidationError struct {
+// DeleteTestEventRequestValidationError is the validation error returned by
+// DeleteTestEventRequest.Validate if the designated constraints aren't met.
+type DeleteTestEventRequestValidationError struct {
 	field  string
 	reason string
 	cause  error
@@ -1614,24 +1616,24 @@ type DeleteEventRequestValidationError struct {
 }
 
 // Field function returns field value.
-func (e DeleteEventRequestValidationError) Field() string { return e.field }
+func (e DeleteTestEventRequestValidationError) Field() string { return e.field }
 
 // Reason function returns reason value.
-func (e DeleteEventRequestValidationError) Reason() string { return e.reason }
+func (e DeleteTestEventRequestValidationError) Reason() string { return e.reason }
 
 // Cause function returns cause value.
-func (e DeleteEventRequestValidationError) Cause() error { return e.cause }
+func (e DeleteTestEventRequestValidationError) Cause() error { return e.cause }
 
 // Key function returns key value.
-func (e DeleteEventRequestValidationError) Key() bool { return e.key }
+func (e DeleteTestEventRequestValidationError) Key() bool { return e.key }
 
 // ErrorName returns error name.
-func (e DeleteEventRequestValidationError) ErrorName() string {
-	return "DeleteEventRequestValidationError"
+func (e DeleteTestEventRequestValidationError) ErrorName() string {
+	return "DeleteTestEventRequestValidationError"
 }
 
 // Error satisfies the builtin error interface
-func (e DeleteEventRequestValidationError) Error() string {
+func (e DeleteTestEventRequestValidationError) Error() string {
 	cause := ""
 	if e.cause != nil {
 		cause = fmt.Sprintf(" | caused by: %v", e.cause)
@@ -1643,14 +1645,14 @@ func (e DeleteEventRequestValidationError) Error() string {
 	}
 
 	return fmt.Sprintf(
-		"invalid %sDeleteEventRequest.%s: %s%s",
+		"invalid %sDeleteTestEventRequest.%s: %s%s",
 		key,
 		e.field,
 		e.reason,
 		cause)
 }
 
-var _ error = DeleteEventRequestValidationError{}
+var _ error = DeleteTestEventRequestValidationError{}
 
 var _ interface {
 	Field() string
@@ -1658,12 +1660,12 @@ var _ interface {
 	Key() bool
 	Cause() error
 	ErrorName() string
-} = DeleteEventRequestValidationError{}
+} = DeleteTestEventRequestValidationError{}
 
-// Validate checks the field values on DeleteEventResponse with the rules
+// Validate checks the field values on DeleteTestEventResponse with the rules
 // defined in the proto definition for this message. If any rules are
 // violated, an error is returned.
-func (m *DeleteEventResponse) Validate() error {
+func (m *DeleteTestEventResponse) Validate() error {
 	if m == nil {
 		return nil
 	}
@@ -1671,9 +1673,9 @@ func (m *DeleteEventResponse) Validate() error {
 	return nil
 }
 
-// DeleteEventResponseValidationError is the validation error returned by
-// DeleteEventResponse.Validate if the designated constraints aren't met.
-type DeleteEventResponseValidationError struct {
+// DeleteTestEventResponseValidationError is the validation error returned by
+// DeleteTestEventResponse.Validate if the designated constraints aren't met.
+type DeleteTestEventResponseValidationError struct {
 	field  string
 	reason string
 	cause  error
@@ -1681,24 +1683,24 @@ type DeleteEventResponseValidationError struct {
 }
 
 // Field function returns field value.
-func (e DeleteEventResponseValidationError) Field() string { return e.field }
+func (e DeleteTestEventResponseValidationError) Field() string { return e.field }
 
 // Reason function returns reason value.
-func (e DeleteEventResponseValidationError) Reason() string { return e.reason }
+func (e DeleteTestEventResponseValidationError) Reason() string { return e.reason }
 
 // Cause function returns cause value.
-func (e DeleteEventResponseValidationError) Cause() error { return e.cause }
+func (e DeleteTestEventResponseValidationError) Cause() error { return e.cause }
 
 // Key function returns key value.
-func (e DeleteEventResponseValidationError) Key() bool { return e.key }
+func (e DeleteTestEventResponseValidationError) Key() bool { return e.key }
 
 // ErrorName returns error name.
-func (e DeleteEventResponseValidationError) ErrorName() string {
-	return "DeleteEventResponseValidationError"
+func (e DeleteTestEventResponseValidationError) ErrorName() string {
+	return "DeleteTestEventResponseValidationError"
 }
 
 // Error satisfies the builtin error interface
-func (e DeleteEventResponseValidationError) Error() string {
+func (e DeleteTestEventResponseValidationError) Error() string {
 	cause := ""
 	if e.cause != nil {
 		cause = fmt.Sprintf(" | caused by: %v", e.cause)
@@ -1710,14 +1712,14 @@ func (e DeleteEventResponseValidationError) Error() string {
 	}
 
 	return fmt.Sprintf(
-		"invalid %sDeleteEventResponse.%s: %s%s",
+		"invalid %sDeleteTestEventResponse.%s: %s%s",
 		key,
 		e.field,
 		e.reason,
 		cause)
 }
 
-var _ error = DeleteEventResponseValidationError{}
+var _ error = DeleteTestEventResponseValidationError{}
 
 var _ interface {
 	Field() string
@@ -1725,19 +1727,19 @@ var _ interface {
 	Key() bool
 	Cause() error
 	ErrorName() string
-} = DeleteEventResponseValidationError{}
+} = DeleteTestEventResponseValidationError{}
 
-// Validate checks the field values on ListEventRequest with the rules defined
-// in the proto definition for this message. If any rules are violated, an
-// error is returned.
-func (m *ListEventRequest) Validate() error {
+// Validate checks the field values on ListTestEventRequest with the rules
+// defined in the proto definition for this message. If any rules are
+// violated, an error is returned.
+func (m *ListTestEventRequest) Validate() error {
 	if m == nil {
 		return nil
 	}
 
 	if v, ok := interface{}(m.GetFilter()).(interface{ Validate() error }); ok {
 		if err := v.Validate(); err != nil {
-			return ListEventRequestValidationError{
+			return ListTestEventRequestValidationError{
 				field:  "Filter",
 				reason: "embedded message failed validation",
 				cause:  err,
@@ -1747,7 +1749,7 @@ func (m *ListEventRequest) Validate() error {
 
 	if v, ok := interface{}(m.GetOrderBy()).(interface{ Validate() error }); ok {
 		if err := v.Validate(); err != nil {
-			return ListEventRequestValidationError{
+			return ListTestEventRequestValidationError{
 				field:  "OrderBy",
 				reason: "embedded message failed validation",
 				cause:  err,
@@ -1757,7 +1759,7 @@ func (m *ListEventRequest) Validate() error {
 
 	if v, ok := interface{}(m.GetFields()).(interface{ Validate() error }); ok {
 		if err := v.Validate(); err != nil {
-			return ListEventRequestValidationError{
+			return ListTestEventRequestValidationError{
 				field:  "Fields",
 				reason: "embedded message failed validation",
 				cause:  err,
@@ -1767,7 +1769,7 @@ func (m *ListEventRequest) Validate() error {
 
 	if v, ok := interface{}(m.GetPaging()).(interface{ Validate() error }); ok {
 		if err := v.Validate(); err != nil {
-			return ListEventRequestValidationError{
+			return ListTestEventRequestValidationError{
 				field:  "Paging",
 				reason: "embedded message failed validation",
 				cause:  err,
@@ -1778,9 +1780,9 @@ func (m *ListEventRequest) Validate() error {
 	return nil
 }
 
-// ListEventRequestValidationError is the validation error returned by
-// ListEventRequest.Validate if the designated constraints aren't met.
-type ListEventRequestValidationError struct {
+// ListTestEventRequestValidationError is the validation error returned by
+// ListTestEventRequest.Validate if the designated constraints aren't met.
+type ListTestEventRequestValidationError struct {
 	field  string
 	reason string
 	cause  error
@@ -1788,22 +1790,24 @@ type ListEventRequestValidationError struct {
 }
 
 // Field function returns field value.
-func (e ListEventRequestValidationError) Field() string { return e.field }
+func (e ListTestEventRequestValidationError) Field() string { return e.field }
 
 // Reason function returns reason value.
-func (e ListEventRequestValidationError) Reason() string { return e.reason }
+func (e ListTestEventRequestValidationError) Reason() string { return e.reason }
 
 // Cause function returns cause value.
-func (e ListEventRequestValidationError) Cause() error { return e.cause }
+func (e ListTestEventRequestValidationError) Cause() error { return e.cause }
 
 // Key function returns key value.
-func (e ListEventRequestValidationError) Key() bool { return e.key }
+func (e ListTestEventRequestValidationError) Key() bool { return e.key }
 
 // ErrorName returns error name.
-func (e ListEventRequestValidationError) ErrorName() string { return "ListEventRequestValidationError" }
+func (e ListTestEventRequestValidationError) ErrorName() string {
+	return "ListTestEventRequestValidationError"
+}
 
 // Error satisfies the builtin error interface
-func (e ListEventRequestValidationError) Error() string {
+func (e ListTestEventRequestValidationError) Error() string {
 	cause := ""
 	if e.cause != nil {
 		cause = fmt.Sprintf(" | caused by: %v", e.cause)
@@ -1815,14 +1819,14 @@ func (e ListEventRequestValidationError) Error() string {
 	}
 
 	return fmt.Sprintf(
-		"invalid %sListEventRequest.%s: %s%s",
+		"invalid %sListTestEventRequest.%s: %s%s",
 		key,
 		e.field,
 		e.reason,
 		cause)
 }
 
-var _ error = ListEventRequestValidationError{}
+var _ error = ListTestEventRequestValidationError{}
 
 var _ interface {
 	Field() string
@@ -1830,12 +1834,12 @@ var _ interface {
 	Key() bool
 	Cause() error
 	ErrorName() string
-} = ListEventRequestValidationError{}
+} = ListTestEventRequestValidationError{}
 
-// Validate checks the field values on ListEventsResponse with the rules
+// Validate checks the field values on ListTestEventsResponse with the rules
 // defined in the proto definition for this message. If any rules are
 // violated, an error is returned.
-func (m *ListEventsResponse) Validate() error {
+func (m *ListTestEventsResponse) Validate() error {
 	if m == nil {
 		return nil
 	}
@@ -1845,7 +1849,7 @@ func (m *ListEventsResponse) Validate() error {
 
 		if v, ok := interface{}(item).(interface{ Validate() error }); ok {
 			if err := v.Validate(); err != nil {
-				return ListEventsResponseValidationError{
+				return ListTestEventsResponseValidationError{
 					field:  fmt.Sprintf("Results[%v]", idx),
 					reason: "embedded message failed validation",
 					cause:  err,
@@ -1857,7 +1861,7 @@ func (m *ListEventsResponse) Validate() error {
 
 	if v, ok := interface{}(m.GetPage()).(interface{ Validate() error }); ok {
 		if err := v.Validate(); err != nil {
-			return ListEventsResponseValidationError{
+			return ListTestEventsResponseValidationError{
 				field:  "Page",
 				reason: "embedded message failed validation",
 				cause:  err,
@@ -1868,9 +1872,9 @@ func (m *ListEventsResponse) Validate() error {
 	return nil
 }
 
-// ListEventsResponseValidationError is the validation error returned by
-// ListEventsResponse.Validate if the designated constraints aren't met.
-type ListEventsResponseValidationError struct {
+// ListTestEventsResponseValidationError is the validation error returned by
+// ListTestEventsResponse.Validate if the designated constraints aren't met.
+type ListTestEventsResponseValidationError struct {
 	field  string
 	reason string
 	cause  error
@@ -1878,24 +1882,24 @@ type ListEventsResponseValidationError struct {
 }
 
 // Field function returns field value.
-func (e ListEventsResponseValidationError) Field() string { return e.field }
+func (e ListTestEventsResponseValidationError) Field() string { return e.field }
 
 // Reason function returns reason value.
-func (e ListEventsResponseValidationError) Reason() string { return e.reason }
+func (e ListTestEventsResponseValidationError) Reason() string { return e.reason }
 
 // Cause function returns cause value.
-func (e ListEventsResponseValidationError) Cause() error { return e.cause }
+func (e ListTestEventsResponseValidationError) Cause() error { return e.cause }
 
 // Key function returns key value.
-func (e ListEventsResponseValidationError) Key() bool { return e.key }
+func (e ListTestEventsResponseValidationError) Key() bool { return e.key }
 
 // ErrorName returns error name.
-func (e ListEventsResponseValidationError) ErrorName() string {
-	return "ListEventsResponseValidationError"
+func (e ListTestEventsResponseValidationError) ErrorName() string {
+	return "ListTestEventsResponseValidationError"
 }
 
 // Error satisfies the builtin error interface
-func (e ListEventsResponseValidationError) Error() string {
+func (e ListTestEventsResponseValidationError) Error() string {
 	cause := ""
 	if e.cause != nil {
 		cause = fmt.Sprintf(" | caused by: %v", e.cause)
@@ -1907,14 +1911,14 @@ func (e ListEventsResponseValidationError) Error() string {
 	}
 
 	return fmt.Sprintf(
-		"invalid %sListEventsResponse.%s: %s%s",
+		"invalid %sListTestEventsResponse.%s: %s%s",
 		key,
 		e.field,
 		e.reason,
 		cause)
 }
 
-var _ error = ListEventsResponseValidationError{}
+var _ error = ListTestEventsResponseValidationError{}
 
 var _ interface {
 	Field() string
@@ -1922,4 +1926,4 @@ var _ interface {
 	Key() bool
 	Cause() error
 	ErrorName() string
-} = ListEventsResponseValidationError{}
+} = ListTestEventsResponseValidationError{}

@@ -183,121 +183,121 @@ service Applications {
 }
 
 // -------------------------------------------------
-// Event
+// TestEvent
 // -------------------------------------------------
-message Event {
+message TestEvent {
   option (gorm.opts) = {
       ormable: true,
       multi_account: true
   };
 
-  // The Event identifier.
+  // The TestEvent identifier.
   atlas.rpc.Identifier id = 1 [(gorm.field).tag = {type: "serial"  primary_key: true}];
 
-  // The name of the Event
+  // The name of the TestEvent
   string name = 2;
 
-  // The description of the Event
+  // The description of the TestEvent
   string description = 3;
 
-  // The timestamp of the Event
+  // The timestamp of the TestEvent
   google.protobuf.Timestamp event_time = 4;
 
   // Reference to Application
-  atlas.rpc.Identifier application_id = 5;
+  atlas.rpc.Identifier application_id = 5 [(gorm.field) = {reference_of: "Application", tag: {type: "integer"}}];
 
 }
 
-message CreateEventRequest {
-  Event payload = 1;
+message CreateTestEventRequest {
+  TestEvent payload = 1;
 }
 
-message CreateEventResponse {
-  Event result = 1;
+message CreateTestEventResponse {
+  TestEvent result = 1;
 }
 
-message ReadEventRequest {
+message ReadTestEventRequest {
   atlas.rpc.Identifier id = 1;
   infoblox.api.FieldSelection fields = 2;
 }
 
-message ReadEventResponse {
-  Event result = 1;
+message ReadTestEventResponse {
+  TestEvent result = 1;
 }
 
-message UpdateEventRequest {
-  Event payload = 1;
+message UpdateTestEventRequest {
+  TestEvent payload = 1;
   google.protobuf.FieldMask fields = 2;
 }
 
-message UpdateEventResponse {
-  Event result = 1;
+message UpdateTestEventResponse {
+  TestEvent result = 1;
 }
 
-message DeleteEventRequest {
+message DeleteTestEventRequest {
   atlas.rpc.Identifier id = 1;
 }
 
-message DeleteEventResponse {}
+message DeleteTestEventResponse {}
 
-message ListEventRequest {
+message ListTestEventRequest {
   infoblox.api.Filtering filter = 1;
   infoblox.api.Sorting order_by = 2;
   infoblox.api.FieldSelection fields = 3;
   infoblox.api.Pagination paging = 4;
 }
 
-message ListEventsResponse {
-  repeated Event results = 1;
+message ListTestEventsResponse {
+  repeated TestEvent results = 1;
   infoblox.api.PageInfo page = 2;
 }
 
-service Events {
+service TestEvents {
   option (gorm.server) = {
       autogen: true,
       txn_middleware: true,
     };
 
-  // Use this method to create a Event information.
-  rpc Create (CreateEventRequest) returns (CreateEventResponse) {
+  // Use this method to create a TestEvent information.
+  rpc Create (CreateTestEventRequest) returns (CreateTestEventResponse) {
     option (google.api.http) = {
-            post: "/events"
+            post: "/test_events"
             body: "payload"
         };
   }
 
-  // Use this method to read a Event information by identifier.
-  rpc Read (ReadEventRequest) returns (ReadEventResponse) {
+  // Use this method to read a TestEvent information by identifier.
+  rpc Read (ReadTestEventRequest) returns (ReadTestEventResponse) {
     option (google.api.http) = {
-            get: "/events/{id.resource_id}"
+            get: "/test_events/{id.resource_id}"
         };
   }
 
-  // Use this method to update a Event information.
-  rpc Update (UpdateEventRequest) returns (UpdateEventResponse) {
+  // Use this method to update a TestEvent information.
+  rpc Update (UpdateTestEventRequest) returns (UpdateTestEventResponse) {
     option (atlas_validate.method).allow_unknown_fields = false;
     option (google.api.http) = {
-            put: "/events/{payload.id.resource_id}"
+            put: "/test_events/{payload.id.resource_id}"
             body: "payload"
             additional_bindings: {
-                patch: "/events/{payload.id.resource_id}"
+                patch: "/test_events/{payload.id.resource_id}"
                 body: "payload"
             }
     };
   }
 
-  // Use this method to delete a particular Event.
-  rpc Delete (DeleteEventRequest) returns (DeleteEventResponse) {
+  // Use this method to delete a particular TestEvent.
+  rpc Delete (DeleteTestEventRequest) returns (DeleteTestEventResponse) {
     option (google.api.http) = {
-            delete: "/events/{id.resource_id}"
+            delete: "/test_events/{id.resource_id}"
         };
-    option (gorm.method).object_type = "Event";
+    option (gorm.method).object_type = "TestEvent";
   }
 
-  // Use this method to retrieve all the Events.
-  rpc List (ListEventRequest) returns (ListEventsResponse) {
+  // Use this method to retrieve all the TestEvents.
+  rpc List (ListTestEventRequest) returns (ListTestEventsResponse) {
     option (google.api.http) = {
-            get: "/events"
+            get: "/test_events"
         };
   }
 }
